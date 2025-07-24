@@ -101,14 +101,15 @@ a:hover {
 /* Profile Picture */
 .profile-pic {
   display: block;
-  margin: 0 auto 1rem auto;
-  width: 140px;
-  height: 140px;
+  margin: 0 auto 1.5rem auto;
+  width: 160px;
+  height: 160px;
+  max-width: 40vw; 
+  max-height: 40vw;
   object-fit: cover;
   border-radius: 50%;
   border: 3px solid var(--primary-color);
 }
-
 /* Skills star ratings */
 .skills-list {
   list-style: none;
