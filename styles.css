@@ -98,6 +98,60 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Profile Picture */
+.profile-pic {
+  display: block;
+  margin: 0 auto 1rem auto;
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--primary-color);
+}
+
+/* Skills star ratings */
+.skills-list {
+  list-style: none;
+  padding-left: 0;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.skills-list li {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stars {
+  font-family: 'Arial', sans-serif;
+  color: #f5a623; /* star gold */
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  user-select: none;
+}
+
+/* Resume download links */
+.download-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.download-link:hover {
+  text-decoration: underline;
+}
+
+.download-icon {
+  fill: var(--primary-color);
+}
+
 footer {
   text-align: center;
   padding: 2rem 0;
