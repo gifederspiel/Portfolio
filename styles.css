@@ -119,8 +119,8 @@ a:hover {
 
 .skills-list li {
   font-weight: 600;
-  font-size: 1.1rem;
-  margin-bottom: 0.75rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -128,8 +128,8 @@ a:hover {
 
 .stars {
   font-family: 'Arial', sans-serif;
-  color: #f5a623; /* star gold */
-  font-size: 1.2rem;
+  color: #ffe604; /* bright yellow */
+  font-size: 2rem;  /* bigger stars */
   letter-spacing: 0.1em;
   user-select: none;
 }
