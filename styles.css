@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #0066cc;
+  --primary-color: #ac071d;
   --text-color: #111;
   --bg-color: #fff;
   --font-family: 'Inter', sans-serif;
@@ -21,32 +21,46 @@ body {
 }
 
 header {
-  background: #f9f9f9;
-  border-bottom: 1px solid #eee;
   padding: 1rem 0;
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
+/* Navigation */
+/* Add a rounded box around the whole nav menu */
 nav ul {
-  list-style: none;
+  background: var(--bg-color);
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 1.5rem;
-  padding: 0;
-  margin: 0;
+  padding: 0.5rem; /* padding inside the box */
+  margin: 0 auto 0.5rem auto; /* center the box and add some bottom margin */
+  list-style: none;
+  border: 2px solid #e2e2e2;
+  border-radius: 50px;
+  max-width: fit-content; /* shrink box to content width */
 }
 
-nav a {
-  text-decoration: none;
+/* Style nav links */
+nav ul li a {
   color: var(--text-color);
-  font-weight: 600;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px; /* rounded box around each link on hover */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: inline-block;
 }
 
-nav a:hover {
-  color: var(--primary-color);
+/* Hover effect: primary background and white text */
+nav ul li a:hover,
+nav ul li a:focus {
+  background-color: #e6e6e6 ;
+}
+
+/* Remove the underline bar under the link */
+nav ul li a::after {
+  display: none;
 }
 
 main {
@@ -69,7 +83,33 @@ section.visible {
 
 .hero {
   text-align: center;
-  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.hero h1 {
+  margin: 0.2rem 0 0.2rem 0; /* less vertical margin */
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+.hero p {
+  margin: 0;
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  color: #555;
+}
+
+.profile-pic {
+  display: block;
+  margin: 0 auto 0.75rem auto; /* reduced bottom margin */
+  width: 160px;
+  height: 160px;
+  max-width: 40vw;
+  max-height: 40vw;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--primary-color);
 }
 
 h1 {
@@ -94,45 +134,18 @@ a {
   color: var(--primary-color);
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
-/* Profile Picture */
-.profile-pic {
-  display: block;
-  margin: 0 auto 1.5rem auto;
-  width: 160px;
-  height: 160px;
-  max-width: 50vw; 
-  max-height: 50vw;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 3px solid var(--primary-color);
-}
-/* Skills star ratings */
-.skills-list {
-  list-style: none;
-  padding-left: 0;
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-.skills-list li {
-  font-weight: 600;
-  margin-bottom: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+#skills p{
+  margin: 0;
 }
 
 .stars {
+  padding: 0 10px 0 10px;
   font-family: 'Arial', sans-serif;
   color: #FFD700; /* bright yellow */
-  font-size: 2rem;  /* bigger stars */
+  background-color: rgb(243, 243, 243);
+  border-radius: 50px;
+  font-size: 1.3rem;  /* bigger stars */
   letter-spacing: 0.1em;
-  user-select: none;
-  line-height: 1;
 }
 
 /* Resume download links */
@@ -153,18 +166,31 @@ a:hover {
   fill: var(--primary-color);
 }
 
+.social-icons {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.social-icons a svg {
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover svg {
+  transform: scale(1.2);
+}
+
 footer {
   text-align: center;
-  padding: 2rem 0;
   border-top: 1px solid #eee;
   font-size: 0.9rem;
   color: #666;
 }
 
 @media (max-width: 600px) {
-  nav ul {
-    flex-direction: column;
-    align-items: center;
+  nav {
+    display: none;
   }
   h1 {
     font-size: 2rem;
