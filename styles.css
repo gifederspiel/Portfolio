@@ -104,8 +104,8 @@ a:hover {
   margin: 0 auto 1.5rem auto;
   width: 160px;
   height: 160px;
-  max-width: 40vw; 
-  max-height: 40vw;
+  max-width: 50vw; 
+  max-height: 50vw;
   object-fit: cover;
   border-radius: 50%;
   border: 3px solid var(--primary-color);
@@ -120,7 +120,6 @@ a:hover {
 
 .skills-list li {
   font-weight: 600;
-  font-size: 1.2rem;
   margin-bottom: 1rem;
   display: flex;
   justify-content: space-between;
@@ -129,10 +128,11 @@ a:hover {
 
 .stars {
   font-family: 'Arial', sans-serif;
-  color: #ffe604; /* bright yellow */
+  color: #FFD700; /* bright yellow */
   font-size: 2rem;  /* bigger stars */
   letter-spacing: 0.1em;
   user-select: none;
+  line-height: 1;
 }
 
 /* Resume download links */
