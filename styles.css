@@ -1,15 +1,17 @@
 :root {
   --primary-color: #ac071d;
   --text-color: #111;
-  --bg-color: #fff;
+  --bg-color: #ffffff;
   --font-family: 'Inter', sans-serif;
-  --max-width: 800px;
+  --max-width: 900px;
+
+  --accent-blue: #0a66c2;
+  --accent-green: #16a34a;
+  --accent-amber: #f59e0b;
+  --accent-purple: #7c3aed;
 }
 
-* {
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
+* { box-sizing: border-box; scroll-behavior: smooth; }
 
 body {
   margin: 0;
@@ -17,185 +19,199 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.6;
-  padding: 0 1rem;
+  padding: 0;
 }
 
-header {
-  padding: 1rem 0;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-/* Navigation */
-/* Add a rounded box around the whole nav menu */
-nav ul {
-  background: var(--bg-color);
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  padding: 0.5rem; /* padding inside the box */
-  margin: 0 auto 0.5rem auto; /* center the box and add some bottom margin */
-  list-style: none;
-  border: 2px solid #e2e2e2;
-  border-radius: 50px;
-  max-width: fit-content; /* shrink box to content width */
-}
-
-/* Style nav links */
-nav ul li a {
-  color: var(--text-color);
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 8px; /* rounded box around each link on hover */
-  transition: background-color 0.3s ease, color 0.3s ease;
-  display: inline-block;
-}
-
-/* Hover effect: primary background and white text */
-nav ul li a:hover,
-nav ul li a:focus {
-  background-color: #e6e6e6 ;
-}
-
-/* Remove the underline bar under the link */
-nav ul li a::after {
-  display: none;
-}
-
-main {
+/* ===============================
+   Notepad Container
+   =============================== */
+.notepad-container {
+  background: #fffef9;
+  background-image: linear-gradient(#f9f9f9 1px, transparent 1px),
+                    linear-gradient(90deg, #f9f9f9 1px, transparent 1px);
+  background-size: 20px 20px;
+  padding: 2rem 3rem;
+  margin: 2rem auto;
   max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 2rem 0;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
-section {
-  margin-bottom: 3rem;
+.notepad-container section {
+  margin-bottom: 0 !important;
+  padding: 1.5rem 0 1.5rem 1.5rem;
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(10px);
   transition: opacity 0.6s ease, transform 0.6s ease;
+  position: relative;
 }
 
-section.visible {
-  opacity: 1;
-  transform: translateY(0);
+.notepad-container section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.8rem;
+  bottom: 0.8rem;
+  width: 4px;
+  border-radius: 2px;
+  background: var(--section-accent, transparent);
 }
 
-.hero {
-  text-align: center;
-  margin-bottom: 3rem;
+.notepad-container > section:last-of-type { border-bottom: none; }
+
+section.visible { opacity: 1; transform: translateY(0); }
+
+/* ===============================
+   Typography
+   =============================== */
+h1, h2 { margin: 0; }
+
+ul { padding-left: 1.2rem; margin: 0.5rem 0; }
+ul li::marker {
+  color: color-mix(in srgb, var(--section-accent, var(--primary-color)) 85%, #000);
 }
 
-.hero h1 {
-  margin: 0.2rem 0 0.2rem 0; /* less vertical margin */
-  font-weight: 700;
-  font-size: 2.5rem;
+a { color: var(--section-accent, var(--primary-color)); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ===============================
+   Hero & About
+   =============================== */
+#hero-about {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  --section-accent: var(--primary-color);
 }
 
-.hero p {
-  margin: 0;
-  font-weight: 500;
-  font-size: 1.2rem;
-  line-height: 1.2;
-  color: #555;
-}
+.hero-col { flex: 1; min-width: 200px; text-align: center; }
+.about-col { flex: 2; min-width: 250px; }
+
+.about-col p { padding: 5px; margin: 0; }
+.about-col h2 { padding-top: 1rem; }
 
 .profile-pic {
   display: block;
-  margin: 0 auto 0.75rem auto; /* reduced bottom margin */
-  width: 160px;
-  height: 160px;
-  max-width: 40vw;
-  max-height: 40vw;
+  margin: 0 auto;
+  width: 170px;
   object-fit: cover;
   border-radius: 50%;
-  border: 3px solid var(--primary-color);
+  outline: 3px solid color-mix(in srgb, var(--section-accent, var(--primary-color)) 35%, transparent);
+  outline-offset: 4px;
 }
 
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+.name { margin-top: 0.4rem; font-weight: 700; letter-spacing: 0.2px; }
+
+.jobtitle {
+  margin-top: 0.15rem;
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--section-accent, var(--primary-color)) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--section-accent, var(--primary-color)) 30%, transparent);
 }
 
-h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
+.firstline {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--section-accent, var(--primary-color)) 12%, transparent);
 }
 
-.project, .job {
-  margin-bottom: 1.5rem;
+/* ===============================
+   Sections
+   =============================== */
+.job-title { font-weight: 600; margin-bottom: 4px; }
+.resume-item { margin-bottom: 0.8rem; }
+.details { padding-left: 1.2rem; margin-top: 0.3rem; border-left: none !important; }
+
+#experience { --section-accent: var(--accent-blue); }
+#education  { --section-accent: var(--accent-amber); }
+#projects   { --section-accent: var(--accent-green); }
+#skills     { --section-accent: var(--accent-purple); }
+
+/* ===============================
+   Footer
+   =============================== */
+footer { text-align: center; font-size: 0.9rem; color: #666; margin: 2rem auto; }
+
+/* ===============================
+   Side Buttons
+   =============================== */
+.side-buttons {
+  position: fixed;
+  top: 2rem;
+  left: calc(50% + var(--max-width) / 2 + 1rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  z-index: 200;
 }
 
-ul {
-  padding-left: 1.2rem;
-}
-
-a {
-  color: var(--primary-color);
-}
-
-#skills p{
-  margin: 0;
-}
-
-.stars {
-  padding: 0 10px 0 10px;
-  font-family: 'Arial', sans-serif;
-  color: #FFD700; /* bright yellow */
-  background-color: rgb(243, 243, 243);
-  border-radius: 50px;
-  font-size: 1.3rem;  /* bigger stars */
-  letter-spacing: 0.1em;
-}
-
-/* Resume download links */
-.download-link {
+.icon-btn {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 56px;
+  height: 56px;
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
-  font-weight: 600;
-  color: var(--primary-color);
-  text-decoration: none;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.icon-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-.download-link:hover {
-  text-decoration: underline;
+.cv-label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #444;
+  letter-spacing: 1px;
 }
 
-.download-icon {
-  fill: var(--primary-color);
+/* Dropdown */
+.btn-group { position: relative; }
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 110%;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  overflow: hidden;
+  min-width: 160px;
+  z-index: 300;
 }
+.btn-group.open .dropdown { display: block; }
 
-.social-icons {
-  margin-top: 1rem;
+.dropdown a {
   display: flex;
-  gap: 1rem;
   align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  padding: 0.7rem 1rem;
+  font-size: 0.95rem;
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid #eee;
 }
+.dropdown a:last-child { border-bottom: none; }
+.dropdown a:hover { background: #f9f9f9; }
 
-.social-icons a svg {
-  transition: transform 0.3s ease;
-}
-
-.social-icons a:hover svg {
-  transform: scale(1.2);
-}
-
-footer {
-  text-align: center;
-  border-top: 1px solid #eee;
-  font-size: 0.9rem;
-  color: #666;
-}
-
-@media (max-width: 600px) {
-  nav {
-    display: none;
-  }
-  h1 {
-    font-size: 2rem;
-  }
-  h2 {
-    font-size: 1.5rem;
+/* Mobile */
+@media (max-width: 1000px) {
+  .side-buttons {
+    position: static;
+    flex-direction: row;
+    justify-content: center;
+    margin: 1.5rem 
   }
 }
