@@ -214,6 +214,9 @@ a:hover { color: var(--section-accent, var(--primary-color)); text-decoration: u
   position: relative;
   overflow: hidden;
 }
+#projects .project-card:not(:last-of-type) {
+  margin-bottom: 0.85rem;
+}
 .project-card::before {
   content: "";
   position: absolute;
@@ -276,7 +279,6 @@ a:hover { color: var(--section-accent, var(--primary-color)); text-decoration: u
   font-weight: 500;
 }
 .project-body {
-  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -284,6 +286,36 @@ a:hover { color: var(--section-accent, var(--primary-color)); text-decoration: u
 .project-intro {
   margin: 0;
   color: color-mix(in srgb, var(--text-color) 90%, var(--muted-text-color));
+}
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--section-accent, var(--primary-color)) 45%, transparent);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--section-accent, var(--primary-color)) 75%, var(--text-color));
+  background: color-mix(in srgb, var(--section-accent, var(--primary-color)) 12%, transparent);
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.project-link:hover {
+  transform: translateY(-1px);
+  background: color-mix(in srgb, var(--section-accent, var(--primary-color)) 20%, transparent);
+}
+.project-link.live {
+  border-color: color-mix(in srgb, var(--section-accent, var(--primary-color)) 55%, transparent);
+}
+.project-link.code {
+  border-style: dashed;
 }
 .project-highlights {
   margin: 0;
@@ -293,7 +325,8 @@ a:hover { color: var(--section-accent, var(--primary-color)); text-decoration: u
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 .project-highlight {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 0.2rem;
 }
 .project-highlights dt {
@@ -302,11 +335,17 @@ a:hover { color: var(--section-accent, var(--primary-color)); text-decoration: u
   color: color-mix(in srgb, var(--section-accent, var(--primary-color)) 75%, var(--text-color));
   text-transform: uppercase;
   letter-spacing: 0.06rem;
+  margin: 0;
 }
 .project-highlights dd {
   margin: 0;
   font-size: 0.92rem;
   color: color-mix(in srgb, var(--text-color) 85%, var(--muted-text-color));
+}
+@media (max-width: 560px) {
+  .project-highlight {
+    gap: 0.2rem;
+  }
 }
 
 /* ===============================
