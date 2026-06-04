@@ -30,10 +30,10 @@
           <span class="meta-divider" aria-hidden="true">•</span>
           <span class="meta-item">
             <span class="meta-icon" aria-hidden="true">🎂</span>
-            <span class="meta-label">06 August 2004</span>
+            <span class="meta-label"><span id="age"></span> years old</span>
           </span>
         </p>
-        <p>Junior Software Developer with a Federal Diploma in Application Development and practical experience in SAP development and agile teams. Known for a structured, solution-oriented working style and clear communication with technical and non-technical stakeholders. Currently enrolled in a Bachelor’s program in International IT Management, with a strong interest in project coordination, digital transformation, and IT leadership.</p>
+        <p>Junior Software Developer with a Federal Diploma in Application Development and hands-on experience building SAP applications in agile teams. Outside of work I explore web and mobile development, and I'm increasingly drawn to AI and how it can be built into real products. Currently studying International IT Management at HSLU, with a focus on where software development, digital transformation, and IT leadership meet.</p>
       </div>
     </section>
 
@@ -75,27 +75,29 @@
       <details class="project-card">
         <summary class="project-summary">
           <span class="project-header">
-            <span class="project-name">Training Certificate Management Platform</span>
-            <span class="project-tag">SAPUI5 · S/4HANA · SAP CRM Migration</span>
+            <span class="project-name">HomeBite</span>
+            <span class="project-tag">React Native · Expo · Supabase · Claude AI</span>
           </span>
         </summary>
         <div class="project-body">
           <p class="project-intro">
-            Led the redesign of a legacy suite into a modular platform that handles training provider submissions,
-            approval workflows, and operator ID issuance for heavy-equipment certifications.
+            A cross-platform food inventory app that helps you cut down on food waste: track what's in your kitchen and its expiry dates, then get AI-generated meal suggestions based on what you already have.
           </p>
+          <div class="project-links" aria-label="Project links">
+            <a class="project-link code" href="https://github.com/gifederspiel/homebite" target="_blank" rel="noopener">GitHub Repo</a>
+          </div>
           <dl class="project-highlights">
             <div class="project-highlight">
-              <dt>My Role</dt>
-              <dd>End-to-end ownership from stakeholder discovery to UI build-out and backend integration.</dd>
+              <dt>What it does</dt>
+              <dd>Expiry tracking with AI meal suggestions, fast item entry via receipt scanning and voice, and sign-in with email, Apple, or Google.</dd>
             </div>
             <div class="project-highlight">
-              <dt>Key Improvements</dt>
-              <dd>Introduced guided forms, automated approvals, and integrated billing to replace manual email processes.</dd>
+              <dt>How it's built</dt>
+              <dd>Expo / React Native app with a Supabase backend (auth, Postgres, edge functions), Claude proxied through an edge function, and a Liquid Glass UI built with expo-blur.</dd>
             </div>
             <div class="project-highlight">
-              <dt>Impact</dt>
-              <dd>Cut administrative turnaround time by enabling real-time status tracking for providers and internal teams.</dd>
+              <dt>What I learned</dt>
+              <dd>Wiring an LLM into a real product end to end, integrating camera and voice input, and shipping a tested mobile app with EAS and CI.</dd>
             </div>
           </dl>
         </div>
@@ -109,9 +111,7 @@
         </summary>
         <div class="project-body">
           <p class="project-intro">
-            Built a full-stack Strava companion that pairs an Express proxy with a responsive dashboard to surface
-            weekly and monthly training metrics, route maps, and workout summaries without exposing OAuth secrets
-            in the browser.
+            A small personal project: a simple dashboard that pulls in my own Strava data and shows my weekly and monthly training stats, route maps, and workout details in one place.
           </p>
           <div class="project-links" aria-label="Project links">
             <a class="project-link live" href="https://run.gianfederspiel.ch" target="_blank" rel="noopener">Live App</a>
@@ -119,16 +119,39 @@
           </div>
           <dl class="project-highlights">
             <div class="project-highlight">
+              <dt>Why I built it</dt>
+              <dd>Wanted a cleaner overview of my own training than the Strava app gives, and an excuse to play with the Strava API end to end.</dd>
+            </div>
+            <div class="project-highlight">
+              <dt>What I learned</dt>
+              <dd>OAuth flows and token refresh, building a small Node/Express proxy to keep secrets off the client, and wiring it all together with a Vite frontend.</dd>
+            </div>
+          </dl>
+        </div>
+      </details>
+      <details class="project-card">
+        <summary class="project-summary">
+          <span class="project-header">
+            <span class="project-name">Story Poker</span>
+            <span class="project-tag">S/4HANA · SAPUI5 · WebSockets</span>
+          </span>
+        </summary>
+        <div class="project-body">
+          <p class="project-intro">
+            A real-time planning-poker tool for sprint refinements: teams join a shared room and vote on the complexity of a ticket in story points, so estimates stay live and in sync across everyone in the session.
+          </p>
+          <dl class="project-highlights">
+            <div class="project-highlight">
+              <dt>What it does</dt>
+              <dd>Create a room per team, configure which values can be voted on, and run live estimation rounds. The tool aggregates each round with simple calculations to suggest the best value, and shows how every member voted &mdash; or hides it via anonymous voting, which is used for the end-of-sprint confidence vote.</dd>
+            </div>
+            <div class="project-highlight">
               <dt>My Role</dt>
-              <dd>Owned the monorepo, shipped the token-refreshing proxy, and designed a mobile UI that surfaces Render cold-start warnings and lets users retarget environments via config or localStorage.</dd>
+              <dd>Designed and built the whole tool on my own, from the room model and configuration UI to the real-time voting flow, deployed for internal company use.</dd>
             </div>
             <div class="project-highlight">
-              <dt>Key Improvements</dt>
-              <dd>Automated access-token renewal, merged run/workout data with inline GPS and HR charts, and simplified setup through one .env plus paired dev servers.</dd>
-            </div>
-            <div class="project-highlight">
-              <dt>Impact</dt>
-              <dd>Delivers a single real-time view of mileage and effort, removing manual Strava exports and keeping athletes informed even during 50-second backend warm-ups.</dd>
+              <dt>What I learned</dt>
+              <dd>Working with WebSockets to keep every participant's view in sync in real time, and modelling multi-team rooms with configurable voting options.</dd>
             </div>
           </dl>
         </div>
@@ -139,42 +162,34 @@
     <section id="skills">
       <h2>Core Skills</h2>
       <div class="skills-grid">
-        <article class="skill-tile frontend">
+        <article class="skill-tile platforms">
           <header class="skill-header">
-            <span class="skill-icon" aria-hidden="true">🎨</span>
+            <span class="skill-icon" aria-hidden="true">⚙️</span>
             <div class="skill-meta">
-              <h3 class="skill-title">UI Architecture</h3>
+              <h3 class="skill-title">SAP & Enterprise</h3>
             </div>
           </header>
           <ul class="skill-badges">
             <li>SAPUI5</li>
             <li>Fiori Elements</li>
-            <li>Git</li>
-          </ul>
-        </article>
-        <article class="skill-tile platforms">
-          <header class="skill-header">
-            <span class="skill-icon" aria-hidden="true">⚙️</span>
-            <div class="skill-meta">
-              <h3 class="skill-title">SAP & Platforms</h3>
-            </div>
-          </header>
-          <ul class="skill-badges">
             <li>SAP CRM</li>
             <li>S/4HANA</li>
             <li>SAP BTP</li>
           </ul>
         </article>
-        <article class="skill-tile teamwork">
+        <article class="skill-tile frontend">
           <header class="skill-header">
-            <span class="skill-icon" aria-hidden="true">🚀</span>
+            <span class="skill-icon" aria-hidden="true">🧩</span>
             <div class="skill-meta">
-              <h3 class="skill-title">Ways of Working</h3>
+              <h3 class="skill-title">Web & Mobile</h3>
             </div>
           </header>
           <ul class="skill-badges">
-            <li>Agile (Scrum, SAFe)</li>
-            <li>DevOps Collaboration</li>
+            <li>JavaScript / TypeScript</li>
+            <li>Node.js & Express</li>
+            <li>React & Expo</li>
+            <li>Supabase</li>
+            <li>REST APIs</li>
           </ul>
         </article>
       </div>
