@@ -43,10 +43,14 @@ body {
 .notepad-container section {
   margin-bottom: 0 !important;
   padding: 1.5rem 0 1.5rem 1.5rem;
+  position: relative;
+}
+
+/* Reveal-on-scroll only when JS is available to show the section again. */
+.js .notepad-container section {
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 0.6s ease, transform 0.6s ease;
-  position: relative;
 }
 
 .notepad-container section::before {
@@ -62,7 +66,7 @@ body {
 
 .notepad-container > section:last-of-type { border-bottom: none; }
 
-section.visible { opacity: 1; transform: translateY(0); }
+.js .notepad-container section.visible { opacity: 1; transform: translateY(0); }
 
 @media (max-width: 768px) {
   .notepad-container section {
@@ -586,4 +590,32 @@ footer {
 .language-level {
   font-size: 0.88rem;
   color: color-mix(in srgb, var(--section-accent, var(--primary-color)) 70%, var(--text-color));
+}
+
+/* ===============================
+   Reduced motion
+   =============================== */
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; }
+
+  /* Show every section immediately, skip the reveal animation. */
+  .js .notepad-container section,
+  .js .notepad-container section.visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Drop hover lifts and chevron spins. */
+  .project-link,
+  .cv-chip,
+  .contact-button,
+  .project-summary::after {
+    transition: none !important;
+  }
+  .project-link:hover,
+  .cv-chip:hover,
+  .contact-button:hover {
+    transform: none !important;
+  }
 }
